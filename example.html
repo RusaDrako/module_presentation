@@ -1,0 +1,70 @@
+<html lang="ru" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta charset="utf-8">
+	<title>Example</title>
+
+
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script type="text/javascript" src="./module_presentation.js"></script>
+
+
+
+
+</head>
+
+
+<body lang="ru">
+
+	<div class="test_1" style="position: relative; width: 200px; height: 120px; border: 1px solid #777;">
+		Test 1
+	</div>
+
+
+	<div style="position: relative; height: 160px; border: 1px solid #777;">
+		<div class="test_2" style="position: absolute; top: 20px; left: 400px; width: 250px; height: 120px; border: 1px solid #777;">
+			Test 2
+			<a href="javascript:module_presentation.view_step(1)">
+				?
+			</a>
+		</div>
+
+
+		<div class="test_2" style="position: absolute; top: 20px; left: 100px; width: 250px; height: 120px; border: 1px solid #777;">
+			Test 3
+			<a href="javascript:module_presentation.view_name('step_5')">
+				?
+			</a>
+		</div>
+	</div>
+
+
+	<div class="test_3" style="width: 300px; height: 120px; border: 1px solid #777;">
+		Test 4
+	</div>
+
+	<div id="test_4" style="position: absolute; top: 1200px; left: 400px; width: 350px; height: 120px; border: 1px solid #777;">
+		Test 5
+	</div>
+
+
+	<script type="text/javascript">
+		/**/
+		jQuery(document).ready(function() {
+			var $steps = [
+				{'name': 'step_1', 'selector': '.test_1', 'description': 'Выбор элемента по классу<br>.test_1', 'position': 'right'},
+				{'name': 'step_2', 'selector': '.test_2', 'description': 'Выбор элемента по классу<br>.test_2<br>первый элемент из списка', 'position': 'left'},
+				{'selector': '.test_3', 'position': 'left'},
+				{'selector': '#test_4', 'description': 'Выбор элемента по id<br>#test_4', 'position': 'top'},
+				{'name': 'step_5', 'size': [100, 150, 200, 250], 'description': 'Задаём область<br>100, 150, 200, 250<br>position - default'},
+			];
+			module_presentation.steps($steps);
+			module_presentation.veiw();
+		});/**/
+	</script>
+
+
+
+
+</body>
+</html>
