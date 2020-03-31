@@ -6,14 +6,14 @@
 
 
 /** Модуль презентации элементов страницы.
- *	@version 0.0.1
+ *	@version 0.0.2
  *	@author Leonid Petukhov
  */
 (function($) {
 	/** Имя модуля */
 	var MODULE_NAME = 'module_presentation';
 	/** Версия модуля */
-	var MODULE_VERSION = '0.0.1';
+	var MODULE_VERSION = '0.0.2';
 	/* Автор модуля */
 	var MODULE_AUTHOR = 'Петухов Леонид';
 	/* Дата релиза модуля */
@@ -26,16 +26,10 @@
 	var $_steps_name = [];
 	/* Текущая позиция массива */
 	var $_i_steps = 0;
-	/* Объект */
+	/* Настройки отступов */
 	var $_set = {
 		'margin_desc': 5,
 		'padding_field': 10,
-		'field': '#003',
-		'border': '2px solid #0f0',
-		'control': '#0f0',
-		'text': '#fff',
-		'bg': '#000',
-		'opacity': 0.5,
 	};
 	/* Объект */
 	var object_module = {};
@@ -44,45 +38,6 @@
 
 
 
-
-
-
-
-
-	/** Присваевает свойства поля */
-	function _property_block_field($block) {
-		$block
-			.attr(MODULE_NAME + '___bg', 1)
-			.css({
-				'position': 'absolute',
-				'background': $_set.field,
-				'border': 0,
-				'opacity': $_set.opacity,
-				'zIndex': 10000,
-			})
-			;
-	}
-
-
-
-
-
-	/** */
-	function _property_block_control($block, $color) {
-		$block
-			.css({
-				'color': $_set.control,
-				'background': $color,
-				'border': $_set.border,
-				'borderRadius': '5px',
-				'margin': '3px',
-				'padding': '5px 10px',
-				'textAlign': 'center',
-				'textDecoration': 'none',
-				'zIndex': 10000,
-			})
-			;
-	}
 
 
 
@@ -167,46 +122,51 @@
 		var $y2 = $coord[3];
 		var $body = $('body');
 		var $doc_h =  $(document).height();
+
 		// Левый блок
 		var $block = $('<div>').appendTo($body);
-		$block.css({
+		$block
+			.attr(MODULE_NAME + '___bg', 1)
+			.css({
 				'top': 0,
 				'left': 0,
 				'width': $x1 + 'px',
 				'height': $doc_h + 'px',
 			})
 			;
-		_property_block_field($block)
 		// Правый блок
 		$block = $('<div>').appendTo($body);
-		$block.css({
+		$block
+			.attr(MODULE_NAME + '___bg', 1)
+			.css({
 				'top': 0,
 				'left': ($x1 + $x2) + 'px',
 				'right': 0,
 				'height': $doc_h + 'px',
 			})
 			;
-		_property_block_field($block)
 		// Верхний блок
 		$block = $('<div>').appendTo($body);
-		$block.css({
+		$block
+			.attr(MODULE_NAME + '___bg', 1)
+			.css({
 				'top': 0,
 				'left': $x1 + 'px',
 				'width': $x2 + 'px',
 				'height': $y1 + 'px',
 			})
 			;
-		_property_block_field($block)
 		// Нижний блок
 		$block = $('<div>').appendTo($body);
-		$block.css({
+		$block
+			.attr(MODULE_NAME + '___bg', 1)
+			.css({
 				'top': ($y1 + $y2) + 'px',
 				'left': $x1 + 'px',
 				'width': $x2 + 'px',
 				'height': ($doc_h - $y1 - $y2) + 'px',
 			})
 			;
-		_property_block_field($block)
 	}
 
 
@@ -264,14 +224,6 @@
 			.css({
 				'left': $x + 'px',
 				'top': $y + 'px',
-				'position': 'absolute',
-				'background': $_set.bg,
-				'color': $_set.text,
-				'border': $_set.border,
-				'borderRadius': '10px',
-				'padding': '5px 10px',
-				'textAlign': 'center',
-				'zIndex': 10000,
 			})
 			.html($description)
 			;
@@ -289,29 +241,13 @@
 		var $control = $('<div>').appendTo($body);
 		$control
 			.attr(MODULE_NAME + '___control', 1)
-			.css({
-				'position': 'fixed',
-				'right': '10px',
-				'top': '20px',
-				'background': 'none',
-//				'color': $_set.text,
-				'border': 0,
-				'borderRadius': 0,
-				'padding': 0,
-				'textAlign': 'center',
-				'boxSizing': 'border-box',
-				'zIndex': 10000,
-			})
 			;
 		// Назад
 		var $block = $('<a href="javascript:' + MODULE_NAME + '.back();"><</a>').appendTo($control);
-		_property_block_control($block, '#080');
 		// Вперёд
 		$block = $('<a href="javascript:' + MODULE_NAME + '.next();">></a>').appendTo($control);
-		_property_block_control($block, '#080');
 		// Закрыть
 		$block = $('<a href="javascript:' + MODULE_NAME + '.close();">X</a>').appendTo($control);
-		_property_block_control($block, '#800');
 	}
 
 
@@ -326,7 +262,7 @@
 				&& $coord[1] > $desc_block.offset().top) {
 			$top = $desc_block.offset().top;
 		}
-		$('html, body').animate({ scrollTop: $top - $top_margin }, 500);
+		$('body').animate({ scrollTop: $top - $top_margin }, 500);
 	}
 
 
@@ -367,8 +303,6 @@
 			$_steps.push($step);
 			$_steps_name.push(item.name);
 		});
-		console.log($_steps);
-		console.log($_steps_name);
 	};
 
 
@@ -465,11 +399,6 @@
 	object_module.about = function() {
 		alert(MODULE_NAME + '\nВерсия: ' + MODULE_VERSION + '\nДата: ' + MODULE_DATE + '\nРазработчик: ' + MODULE_AUTHOR + '\n\n' + MODULE_DESCRIPTION);
 	};
-
-
-
-
-
 
 
 
