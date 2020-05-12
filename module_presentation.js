@@ -6,20 +6,20 @@
 
 
 /** Модуль презентации элементов страницы.
- *	@version 0.0.2
+ *	@version 0.1.0
  *	@author Leonid Petukhov
  */
 (function($) {
 	/** Имя модуля */
 	var MODULE_NAME = 'module_presentation';
 	/** Версия модуля */
-	var MODULE_VERSION = '0.0.2';
+	var MODULE_VERSION = '0.1.0';
 	/* Автор модуля */
 	var MODULE_AUTHOR = 'Петухов Леонид';
 	/* Дата релиза модуля */
 	var MODULE_DATE = '2020-03-31';
 	/* Описание модуля */
-	var MODULE_DESCRIPTION = 'Модуль презентации элементов страницы.';
+	var MODULE_DESCRIPTION = 'Модуль презентации элементов страницы на базе jQuery.';
 	/* Массив элементов меню */
 	var $_steps = [];
 	/* Массив элементов меню */
@@ -31,13 +31,31 @@
 		'margin_desc': 5,
 		'padding_field': 10,
 	};
-	/* Объект */
+
+	/* Общедоступные настройки модуля */
+	var options = {
+		text: {
+			back: 'Назад',
+			next: 'Далее',
+			close: 'Выход',
+		},
+	};
+
+
+	/* Объект модуля */
 	var object_module = {};
 
 
 
 
 
+
+
+
+
+
+	/* Подключает настройки модуля в свойство объекта */
+	object_module.options = options;
 
 
 
@@ -243,11 +261,11 @@
 			.attr(MODULE_NAME + '___control', 1)
 			;
 		// Назад
-		var $block = $('<a href="javascript:' + MODULE_NAME + '.back();"><</a>').appendTo($control);
+		var $block = $('<a href="javascript:' + MODULE_NAME + '.back();">' + options.text.back + '</a>').appendTo($control);
 		// Вперёд
-		$block = $('<a href="javascript:' + MODULE_NAME + '.next();">></a>').appendTo($control);
+		$block = $('<a href="javascript:' + MODULE_NAME + '.next();">' + options.text.next + '</a>').appendTo($control);
 		// Закрыть
-		$block = $('<a href="javascript:' + MODULE_NAME + '.close();">X</a>').appendTo($control);
+		$block = $('<a href="javascript:' + MODULE_NAME + '.close();">' + options.text.close + '</a>').appendTo($control);
 	}
 
 
@@ -404,7 +422,7 @@
 
 
 
-	window.module_presentation = object_module;
+	window[MODULE_NAME] = object_module;
 
 /**/
 }(jQuery));
