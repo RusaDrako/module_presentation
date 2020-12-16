@@ -2,7 +2,7 @@
 	position: absolute;
 	margin: 0;
 	padding: 0;
-	background: #003;
+	background: #037;
 	border: 0;
 	box-sizing: border-box;
 	opacity: 0.5;
@@ -12,12 +12,13 @@
 
 [module_presentation___description] {
 	position: absolute;
-	background: #000;
+	max-width: 600px;
+	background: #070;
 	color: #fff;
-	border: 2px solid #777;
+	border: 2px solid #fff;
 	border-radius: 5px;
 	padding: 5px 10px;
-	text-align: center;
+	text-align: justify;
 	z-index: 10000;
 }
 
@@ -38,8 +39,8 @@
 
 [module_presentation___control] > a {
 	color: #fff;
-	background: #050;
-	border: 2px solid #777;
+	background: #070;
+	border: 2px solid #fff;
 	border-radius: 5px;
 	margin: 3px;
 	padding: 5px 10px;
@@ -51,5 +52,5 @@
 
 
 [module_presentation___control] > a:last-of-type {
-	background: #500;
+	background: #700;
 }
