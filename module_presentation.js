@@ -398,6 +398,17 @@
 
 
 
+	/** Очищает шаги презентации */
+	object_module.clean = function() {
+		$_steps = [];
+		$_steps_name = [];
+		$_i_steps = 0;
+	};
+
+
+
+
+
 	/** Возвращает объект с информацией о модуле */
 	object_module.info = function() {
 		return {
