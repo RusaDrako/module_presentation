@@ -9,6 +9,7 @@
 	- [next](#next)
 	- [view_name](#view_name)
 	- [view_step](#view_step)
+	- [clean](#clean)
 	- [close](#close)
 4. [Локализация](#Локализация)
 
@@ -114,6 +115,16 @@ module_presentation.view_step($i)
 ```
 
 - $i - Порядковый номер кадра (первый элемент - 0)
+
+[К оглавлению](#Оглавление)
+
+#### close
+
+Очистить все кадры презентации
+
+```JavaScript
+module_presentation.clean()
+```
 
 [К оглавлению](#Оглавление)
 
