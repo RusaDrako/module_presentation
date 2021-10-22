@@ -5,15 +5,12 @@
 
 
 
-/**
- *	@version 0.1.0
- *	@author Leonid Petukhov
- */
+/** */
 (function($) {
 	/** Имя модуля */
 	var MODULE_NAME = 'module_presentation';
 	/** Версия модуля */
-	var MODULE_VERSION = '0.1.0';
+	var MODULE_VERSION = '1.0.0';
 	/* Автор модуля */
 	var MODULE_AUTHOR = 'Петухов Леонид';
 	/* Дата релиза модуля */

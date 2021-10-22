@@ -1,23 +1,42 @@
 # Модуль презентации элементов страницы (module_presentation)
+____
+
+![license](https://img.shields.io/github/license/RusaDrako/module_presentation?style=plastic)
+![release](https://img.shields.io/github/v/release/RusaDrako/module_presentation?style=plastic)
+
+
 
 ## Оглавление
 
 1. [Подключение](#Подключение)
-2. [Кадры](#Кадры)
-3. [Методы](#Методы)
+2. [Активация](#Активация)
+3. [Кадры](#Кадры)
+4. [Методы](#Методы)
 	- [back](#back)
 	- [next](#next)
 	- [view_name](#view_name)
 	- [view_step](#view_step)
 	- [clean](#clean)
 	- [close](#close)
-4. [Локализация](#Локализация)
+5. [Локализация](#Локализация)
 
 
 
 ## Подключение
 
-Активация презентации
+Для подключения модуля необходимо добавить в html следующие строки
+
+```html
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script type="text/javascript" src="/module_presentation.js"></script>
+<link href="/module_presentation.css" rel="stylesheet">
+```
+
+[Оглавление](#Оглавление)
+
+
+
+## Активация
 
 ```JavaScript
 module_presentation.steps($steps)
@@ -31,6 +50,7 @@ module_presentation.veiw()
 ```
 
 [Оглавление](#Оглавление)
+
 
 
 ## Кадры
@@ -72,9 +92,11 @@ $steps = [
 
 [К оглавлению](#Оглавление)
 
+
+
 ## Методы
 
-#### back
+### back
 
 Показать предыдущий кадр
 
@@ -84,7 +106,9 @@ module_presentation.back()
 
 [К оглавлению](#Оглавление)
 
-#### next
+
+
+### next
 
 Показать следующий кадр
 
@@ -94,7 +118,9 @@ module_presentation.next()
 
 [К оглавлению](#Оглавление)
 
-#### view_name
+
+
+### view_name
 
 Показать кадр - по имени кадра
 
@@ -106,7 +132,9 @@ module_presentation.next()
 
 [К оглавлению](#Оглавление)
 
-#### view_step
+
+
+### view_step
 
 Показать кадр - по порядковому номеру
 
@@ -118,7 +146,9 @@ module_presentation.view_step($i)
 
 [К оглавлению](#Оглавление)
 
-#### close
+
+
+### close
 
 Очистить все кадры презентации
 
@@ -128,7 +158,9 @@ module_presentation.clean()
 
 [К оглавлению](#Оглавление)
 
-#### close
+
+
+### close
 
 Закрыть презентацию
 
@@ -137,6 +169,8 @@ module_presentation.close()
 ```
 
 [К оглавлению](#Оглавление)
+
+
 
 ## Локализация
 
@@ -149,5 +183,7 @@ module_presentation.options.text.close = 'Выход';
 ```
 
 [Оглавление](#Оглавление)
+
+
 
 [![Logo](https://avatars0.githubusercontent.com/u/32844979?s=50 "RusaDrako")](https://github.com/RusaDrako/)
