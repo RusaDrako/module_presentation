@@ -1,9 +1,5 @@
-/** Тестировалось на библиотеки jQuery v3.2.1 */
-
 // Включаем строгий режим
 "use strict";
-
-
 
 /** */
 (function($) {
@@ -38,36 +34,20 @@
 		},
 	};
 
-
 	/* Объект модуля */
 	var object_module = {};
-
-
-
-
-
-
-
-
-
 
 	/* Подключает настройки модуля в свойство объекта */
 	object_module.options = options;
 
 
-
-
-
+	
 	/** */
 	function _clear() {
 		$('[' + MODULE_NAME + '___bg]').detach();
 		$('[' + MODULE_NAME + '___description]').detach();
 		$('[' + MODULE_NAME + '___control]').detach();
 	}
-
-
-
-
 
 	/** */
 	function _view_step($i) {
@@ -89,10 +69,6 @@
 		_move($coord, $block_desc)
 	}
 
-
-
-
-
 	/** Получаем координаты "видимой" области */
 	function _get_coord($object) {
 		var $coord;
@@ -110,10 +86,6 @@
 		return $coord;
 	}
 
-
-
-
-
 	/** */
 	function _get_coord_selector($selector) {
 		var $contener = $($selector);
@@ -124,10 +96,6 @@
 		var $coord = [$x1, $y1, $x2, $y2];
 		return $coord;
 	}
-
-
-
-
 
 	/** Формирует "закрывающее" поле */
 	function _create_field($coord) {
@@ -184,10 +152,6 @@
 			;
 	}
 
-
-
-
-
 	/** Формирует поле с описанием */
 	function _create_description($coord, $object) {
 		var $desc_block;
@@ -226,10 +190,6 @@
 		return $desc_block;
 	}
 
-
-
-
-
 	/** */
 	function _create_description_block($x, $y, $description) {
 		var $body = $('body');
@@ -244,10 +204,6 @@
 			;
 		return $block;
 	}
-
-
-
-
 
 	/** Формирует элементы управления */
 	function _control_elem() {
@@ -265,10 +221,6 @@
 		$block = $('<a href="javascript:' + MODULE_NAME + '.close();">' + options.text.close + '</a>').appendTo($control);
 	}
 
-
-
-
-
 	/** Перемещаем экран к выделенной области */
 	function _move($coord, $desc_block) {
 		var $top_margin = 50;
@@ -279,16 +231,6 @@
 		}
 		$('body').animate({ scrollTop: $top - $top_margin }, 500);
 	}
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -320,10 +262,6 @@
 		});
 	};
 
-
-
-
-
 	/** Запуск презентации */
 	object_module.veiw = function() {
 		if ($_steps.length > 0) {
@@ -331,10 +269,6 @@
 			_view_step(0);
 		}
 	};
-
-
-
-
 
 	/** Показать предыдущий кадр */
 	object_module.back = function() {
@@ -344,10 +278,6 @@
 		}
 	};
 
-
-
-
-
 	/** Показать следующий кадр */
 	object_module.next = function() {
 		if ($_i_steps < ($_steps.length-1)) {
@@ -355,10 +285,6 @@
 			_view_step($_i_steps);
 		}
 	};
-
-
-
-
 
 	/** Показать кадр - по имени кадра
 	 * @param $name Имя кадра
@@ -371,10 +297,6 @@
 		}
 	};
 
-
-
-
-
 	/** Показать кадр - по порядковому номеру
 	 * @param $i Порядковый номер кадра (первый элемент - 0)
 	 */
@@ -382,18 +304,10 @@
 		_view_step($i);
 	};
 
-
-
-
-
 	/** Закрыть презентацию */
 	object_module.close = function() {
 		_clear();
 	};
-
-
-
-
 
 	/** Очищает шаги презентации */
 	object_module.clean = function() {
@@ -401,10 +315,6 @@
 		$_steps_name = [];
 		$_i_steps = 0;
 	};
-
-
-
-
 
 	/** Возвращает объект с информацией о модуле */
 	object_module.info = function() {
@@ -417,18 +327,10 @@
 		};
 	};
 
-
-
-
-
 	/** Выводит сообщение с информацией о модуле */
 	object_module.about = function() {
 		alert(MODULE_NAME + '\nВерсия: ' + MODULE_VERSION + '\nДата: ' + MODULE_DATE + '\nРазработчик: ' + MODULE_AUTHOR + '\n\n' + MODULE_DESCRIPTION);
 	};
-
-
-
-
 
 	window[MODULE_NAME] = object_module;
 
